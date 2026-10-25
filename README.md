@@ -4,7 +4,24 @@ A local generative drawing instrument built with React, TypeScript, and Vite. Co
 
 ![Filament Studio with a generated hybrid drawing](docs/images/desktop.png)
 
-## Run
+## Download and use
+
+Download `filament-studio-0.1.0-local.zip` from the [latest release](https://github.com/notlestat/filament-studio/releases/latest). Install [Node.js 22.12 or newer](https://nodejs.org/), unzip it, and open a terminal in the extracted folder.
+
+```sh
+npm start
+```
+
+Open the local address printed in the terminal, normally http://127.0.0.1:5180/. Keep the terminal open while drawing. The ZIP contains the built app and needs no dependency installation, build, account, or API key. See [local-use instructions](docs/LOCAL-USE.md) for details.
+
+## Run from source
+
+Choose **Code → Download ZIP** on GitHub, then unzip it. Alternatively, clone the repository:
+
+```sh
+git clone https://github.com/notlestat/filament-studio.git
+cd filament-studio
+```
 
 Open a terminal in this folder, then run:
 
@@ -57,4 +74,4 @@ The interface loads DM Sans and IBM Plex Mono from Google Fonts when available, 
 
 The implementation was imported from the original local Filament Studio prototype. The [original conversation](https://chatgpt.com/s/cx_6add462392348191968d8d3dbaefe592) records the brief and initial build. The source folder remains intact. This repository includes validation and error-handling fixes made during the import. See [the review record](docs/REVIEW.md) for checks and remaining limits.
 
-The repository workspace was created in [T3 Code](https://t3.codes).
+To build the local-use download from source, run `npm run package:local`. The ZIP is written to `release/`.

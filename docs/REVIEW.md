@@ -46,10 +46,18 @@ Playwright drove installed Google Chrome against the production build served by 
 
 No uncaught page errors occurred in the main browser flow. Additional component probes against the development server reproduced and verified the layer-opacity and typed-placement repairs. Desktop and mobile screenshots were inspected visually.
 
-The T3 browser snapshot timed out twice. Browser interactions and screenshots were completed with local Playwright instead.
+The initial browser snapshot timed out twice. Browser interactions and screenshots were completed with local Playwright instead.
 
 ## Remaining limits
 
 The sheet remains a fixed portrait format. Placement is numeric. There is no undo history, freehand drawing, node editing, animation, or pinch gesture. Dense compositions can take longer to generate and export. Google Fonts require a network connection, with system font fallbacks. Artwork and settings stay in the browser, and SVG metadata includes the project settings.
 
 Safari, Firefox, physical mobile devices, and production hosting were not tested. The GitHub Actions workflow is separate from these local results. This review does not claim that every defect or dependency vulnerability has been found.
+
+## Local download check
+
+On 25 October 2026, the project gained a local-use ZIP containing the built app, a dependency-free Node launcher, startup instructions, and third-party license notices. No development dependencies or repository metadata are included.
+
+The ZIP was extracted into a fresh temporary folder without `node_modules`. `npm start` served that extracted copy, and the browser checks listed above passed against it. Eleven automated tests passed, including launcher checks for HTML and worker content types, HEAD requests, unsupported methods, malformed URLs, and attempts to read files outside `dist`. Type checks, the package build, and the dependency audit also passed.
+
+The launcher binds to `127.0.0.1` and tries the next port when the default is occupied. The download requires Node.js 22.12 or newer. It is a browser app served locally, not a native desktop installer.
